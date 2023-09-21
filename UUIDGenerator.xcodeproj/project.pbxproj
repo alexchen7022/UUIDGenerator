@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		BD8D23792A94F30600D86379 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD8D23782A94F30600D86379 /* main.swift */; };
+		BD8D23802A94F68000D86379 /* KeyChainHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD8D237F2A94F68000D86379 /* KeyChainHelper.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -23,8 +24,12 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		BD0402242AB4702F00904B31 /* keychaing.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = keychaing.entitlements; sourceTree = SOURCE_ROOT; };
+		BD0402252AB47A2800904B31 /* UUIDGeneratorDebug.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = UUIDGeneratorDebug.entitlements; sourceTree = "<group>"; };
+		BD0402262AB47A8000904B31 /* UUIDGeneratorRelease.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = UUIDGeneratorRelease.entitlements; sourceTree = "<group>"; };
 		BD8D23752A94F30600D86379 /* UUIDGenerator */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = UUIDGenerator; sourceTree = BUILT_PRODUCTS_DIR; };
-		BD8D23782A94F30600D86379 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		BD8D23782A94F30600D86379 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; usesTabs = 0; };
+		BD8D237F2A94F68000D86379 /* KeyChainHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyChainHelper.swift; sourceTree = "<group>"; usesTabs = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -41,10 +46,12 @@
 		BD8D236C2A94F30600D86379 = {
 			isa = PBXGroup;
 			children = (
+				BD0402242AB4702F00904B31 /* keychaing.entitlements */,
 				BD8D23772A94F30600D86379 /* UUIDGenerator */,
 				BD8D23762A94F30600D86379 /* Products */,
 			);
 			sourceTree = "<group>";
+			usesTabs = 0;
 		};
 		BD8D23762A94F30600D86379 /* Products */ = {
 			isa = PBXGroup;
@@ -57,7 +64,10 @@
 		BD8D23772A94F30600D86379 /* UUIDGenerator */ = {
 			isa = PBXGroup;
 			children = (
+				BD0402262AB47A8000904B31 /* UUIDGeneratorRelease.entitlements */,
+				BD0402252AB47A2800904B31 /* UUIDGeneratorDebug.entitlements */,
 				BD8D23782A94F30600D86379 /* main.swift */,
+				BD8D237F2A94F68000D86379 /* KeyChainHelper.swift */,
 			);
 			path = UUIDGenerator;
 			sourceTree = "<group>";
@@ -89,8 +99,12 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
+				KnownAssetTags = (
+					New,
+				);
 				LastSwiftUpdateCheck = 1430;
 				LastUpgradeCheck = 1430;
+				ORGANIZATIONNAME = "Alex Chen";
 				TargetAttributes = {
 					BD8D23742A94F30600D86379 = {
 						CreatedOnToolsVersion = 14.3.1;
@@ -121,6 +135,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BD8D23792A94F30600D86379 /* main.swift in Sources */,
+				BD8D23802A94F68000D86379 /* KeyChainHelper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -243,8 +258,15 @@
 		BD8D237D2A94F30600D86379 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = UUIDGenerator/UUIDGeneratorDebug.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = BFZ97J85L8;
+				ENABLE_HARDENED_RUNTIME = NO;
+				PRODUCT_BUNDLE_IDENTIFIER = tw.com.demo.uuid.generator;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
@@ -252,8 +274,15 @@
 		BD8D237E2A94F30600D86379 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = UUIDGenerator/UUIDGeneratorRelease.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = BFZ97J85L8;
+				ENABLE_HARDENED_RUNTIME = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = tw.com.demo.uuid.generator;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
